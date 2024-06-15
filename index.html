@@ -83,7 +83,7 @@
             color: #fff;
             font-size: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            animation: move 10s linear infinite;
+            animation: move 10s linear;
         }
         @keyframes move {
             0% {
@@ -105,71 +105,5 @@
             padding: 10px;
             font-size: 16px;
             border: 2px solid #333;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-        }
-        .input-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: 2px solid #333;
-            border-left: none;
-            border-radius: 0 4px 4px 0;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>祝福 Liu Yaning 生日快乐！</h1>
-        <p class="birthday-message">亲爱的 Liu Yaning，祝你在你的15岁生日里，所有的愿望都能实现，生活充满快乐和成功！</p>
-        <div class="confetti">
-            <!-- Generate confetti dynamically using JavaScript -->
-        </div>
-        <footer>Best wishes from your friends!</footer>
-    </div>
+            border-radius: 4px 0 
 
-    <div class="barrage-container" id="barrageContainer"></div>
-    <div class="input-container">
-        <input type="text" id="barrageInput" placeholder="输入弹幕内容">
-        <button onclick="sendBarrage()">发送</button>
-    </div>
-
-    <script>
-        // Generate confetti pieces dynamically
-        const confettiContainer = document.querySelector('.confetti');
-        const numConfetti = 150;
-
-        for (let i = 0; i < numConfetti; i++) {
-            const confettiPiece = document.createElement('div');
-            confettiPiece.className = 'piece';
-            confettiPiece.style.left = `${Math.random() * 100}%`;
-            confettiPiece.style.animationDelay = `${Math.random() * 10}s`;
-            confettiContainer.appendChild(confettiPiece);
-        }
-
-        // Function to send barrage
-        function sendBarrage() {
-            const input = document.getElementById('barrageInput');
-            const message = input.value.trim();
-            if (message) {
-                const barrageContainer = document.getElementById('barrageContainer');
-                const barrage = document.createElement('div');
-                barrage.className = 'barrage';
-                barrage.style.top = `${Math.random() * 90}%`;
-                barrage.textContent = message;
-                barrageContainer.appendChild(barrage);
-
-                // Remove barrage after animation ends
-                setTimeout(() => {
-                    barrage.remove();
-                }, 10000);
-
-                // Clear input
-                input.value = '';
-            }
-        }
-    </script>
-</body>
-</html>
